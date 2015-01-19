@@ -27,6 +27,11 @@
 #include "map.h"
 #endif
 
+#ifndef __INLCUDE_MYLIB
+#define __INLCUDE_MYLIB
+#include "mylib.h"
+#endif
+
 
 Bullet::Bullet(float charX, float charY, float radi, CharType chartype) {
     radian = radi + PI * 1.5;      // ”­Ë•ûŒü‚ğ“ü—Í   ‚È‚º‚©Šp“xC³‚µ‚È‚¢‚Æ³‚µ‚¢•ûŒü‚©‚ç”­Ë‚µ‚È‚¢
@@ -60,17 +65,20 @@ void Bullet::setAlive() {
     alive = true;
 }
 
-int Bullet::Hit(Map &map, Player &player, Enemy &enemy) {
+int Bullet::Hit(Map &map) {
     // ‰½‚©‚É“–‚½‚Á‚½‚ç’e‚ğÁ‚·
     if(map.HitMapObj(x, y, size)) {    // Map‚Æ‚Ì“–‚½‚è”»’è
         return 1;   // ‰½‚©‚É“–‚½‚Á‚½‚ç‚P‚ğ•Ô‚·
     }
+    /*
+     * ƒvƒŒƒCƒ„[‚Æ‚Ì“–‚½‚è”»’è
     if(shotChar == C_Enemy) {
         if(mylib::HitObj(x, y, size, player.GetX(), player.GetY(), 64) == 1) {
             player.Hit();
             return 1;
         }
     }
+    */
     return 0;
 }
 

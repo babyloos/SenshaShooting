@@ -57,7 +57,7 @@
 
 #define ENEMY_NUM 1
 
-
+/*
 int GameMain() {
 
     UserIF userif;
@@ -69,6 +69,39 @@ int GameMain() {
 
     SetDrawScreen(DX_SCREEN_BACK);
 
+
+    while(ScreenFlip() == 0 && ProcessMessage()==0 && ClearDrawScreen()==0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
+
+        map.Draw(camera);
+        player.Draw(camera);
+        player.Update(map);
+        camera.MoveCamera();
+
+        for(int i=0; i<ENEMY_NUM; i++) {
+            enemy[i].MoveAi(player, map);
+            enemy[i].Draw(camera);
+        }
+
+    }
+ 
+  return 0; 
+}
+
+*/
+
+
+int GameMain() {
+
+
+
+    // UserIF userif;
+    // WaitKey();
+    Map map;
+    Player player;
+    Camera camera;
+    Enemy enemy[ENEMY_NUM];
+
+    SetDrawScreen(DX_SCREEN_BACK);
 
     while(ScreenFlip() == 0 && ProcessMessage()==0 && ClearDrawScreen()==0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
 
@@ -87,3 +120,4 @@ int GameMain() {
  
   return 0; 
 }
+

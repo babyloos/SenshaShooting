@@ -43,13 +43,9 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int){
         SetGraphMode( WINDOW_SIZE_X, WINDOW_SIZE_Y , 32);
 
         DxLib_Init();
-        SetMouseDispFlag(TRUE);         // マウスポインタ表示するかどうか
-
+        SetMouseDispFlag(FALSE);         // マウスポインタ表示するかどうか
 
         GameMain();
-
-
-
 
         DxLib_End();    // DXライブラリの終了
         return 0;
